@@ -21,7 +21,7 @@ on:
 jobs:
   build-and-push: 
     name: Build and push to github container registry
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     environment: development
 
     outputs:
@@ -55,7 +55,12 @@ jobs:
         password: ${{ env.REGISTRY_PASSWORD }}
 
     # The path the image was pushed to is now stored in ${{ steps.push-to-registry.outputs.registry-path }}
-
+    # oc installer
+     steps:
+        - name: Install oc
+          uses: redhat-actions/oc-installer@v1
+          with:
+            oc_version: 'latest'
     # https://github.com/redhat-actions/oc-login#readme
     - name: Log in to OpenShift 
       uses: redhat-actions/oc-login@v1
