@@ -9,7 +9,7 @@ env:
 
   OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
   OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFT_TOKEN }}
-  OPENSHIFT_NAMESPACE: "workshop"
+  OPENSHIFT_NAMESPACE: "myproject"
 
   APP_PORT: "8080"
 
@@ -56,11 +56,10 @@ jobs:
 
     # The path the image was pushed to is now stored in ${{ steps.push-to-registry.outputs.registry-path }}
     # oc installer
-     steps:
-        - name: Install oc
-          uses: redhat-actions/oc-installer@v1
-          with:
-            oc_version: 'latest'
+    - name: Install oc
+      uses: redhat-actions/oc-installer@v1
+      with:
+        oc_version: 'latest'
     # https://github.com/redhat-actions/oc-login#readme
     - name: Log in to OpenShift 
       uses: redhat-actions/oc-login@v1
