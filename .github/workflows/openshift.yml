@@ -9,7 +9,7 @@ env:
 
   OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
   OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFT_TOKEN }}
-  OPENSHIFT_NAMESPACE: "myproject"
+  OPENSHIFT_NAMESPACE: "workshop"
 
   APP_PORT: "8080"
 
